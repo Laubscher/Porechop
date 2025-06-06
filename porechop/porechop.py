@@ -35,10 +35,15 @@ def main():
     reads, check_reads, read_type = load_reads(args.input, args.verbosity, args.print_dest,
                                                args.check_reads)
 
-    matching_sets = find_matching_adapter_sets(check_reads, args.verbosity, args.end_size,
+    if args.force_all_adapters:
+      if args.verbosity > 0:
+        print(bold_underline('Forcing use of all adapters'), file=args.print_dest)
+      matching_sets = [a for a in ADAPTERS if '(full sequence)' not in a.name]
+    else:
+        matching_sets = find_matching_adapter_sets(check_reads, args.verbosity, args.end_size,
                                                args.scoring_scheme_vals, args.print_dest,
                                                args.adapter_threshold, args.threads)
-    matching_sets = fix_up_1d2_sets(matching_sets)
+        matching_sets = fix_up_1d2_sets(matching_sets)
 
     if args.barcode_dir:
         forward_or_reverse_barcodes = choose_barcoding_kit(matching_sets, args.verbosity,
@@ -145,6 +150,8 @@ def get_arguments():
     adapter_search_group.add_argument('--scoring_scheme', type=str, default='3,-6,-5,-2',
                                       help='Comma-delimited string of alignment scores: match, '
                                            'mismatch, gap open, gap extend')
+    adapter_search_group.add_argument('--force_all_adapters', action='store_true',
+                                  help='Ignore adapter detection and force trimming using all adapters in adapter.py')
 
     end_trim_group = parser.add_argument_group('End adapter settings',
                                                'Control the trimming of adapters from read ends')
