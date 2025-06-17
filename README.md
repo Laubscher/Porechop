@@ -1,11 +1,11 @@
-<p align="center"><img src="misc/porechop_logo_guillotine.png" alt="Porechop" width="600"></p>
+### PoreXop
 
 This repository is a fork of Porechop by Ryan Wick.  
 It includes modifications by Florian Laubscher.  
 The project remains licensed under the GNU General Public License v3.0.  
 
 #### Original README (by Ryan Wick) ->
-<p align="center"><img src="misc/porechop_logo_knife.png" alt="Porechop" width="600"></p>
+<p align="center"><img src="misc/porechop_logo_guillotine.png" alt="Porechop" width="600"></p>
 Porechop is a tool for finding and removing adapters from [Oxford Nanopore](https://nanoporetech.com/) reads. Adapters on the ends of reads are trimmed off, and when a read has an adapter in its middle, it is treated as chimeric and chopped into separate reads. Porechop performs thorough alignments to effectively find adapters, even at low sequence identity.
 
 Porechop also supports demultiplexing of Nanopore reads that were barcoded with the [Native Barcoding Kit](https://store.nanoporetech.com/native-barcoding-kit-1d.html), [PCR Barcoding Kit](https://store.nanoporetech.com/pcr-barcoding-kit-96.html) or [Rapid Barcoding Kit](https://store.nanoporetech.com/rapid-barcoding-sequencing-kit.html).
