@@ -26,7 +26,7 @@ import re
 from multiprocessing.dummy import Pool as ThreadPool
 from collections import defaultdict
 from .misc import load_fasta_or_fastq, print_table, red, bold_underline, MyHelpFormatter, int_to_str
-from .primers_mpox import ADAPTERS, make_full_native_barcode_adapter,\
+from .primers_flu import ADAPTERS, make_full_native_barcode_adapter,\
     make_old_full_rapid_barcode_adapter, make_new_full_rapid_barcode_adapter
 from .nanopore_read import NanoporeRead
 from .version import __version__
